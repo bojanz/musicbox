@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block secondaryNavigation %}
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li {% if adminActive == 'artists' %}class="active"{% endif %}>
+                <a href="{{ path('admin_artists') }}">{{ 'Artists'|trans }}</a>
+            </li>
+            <li {% if adminActive == 'comments' %}class="active"{% endif %}>
+                <a href="{{ path('admin_comments') }}">{{ 'Comments'|trans }}</a>
+            </li>
+            <li {% if adminActive == 'users' %}class="active"{% endif %}>
+                <a href="{{ path('admin_users') }}">{{ 'Users'|trans }}</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

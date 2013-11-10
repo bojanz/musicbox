@@ -1,0 +1,27 @@
+{% extends 'layout.html.twig' %}
+{% set active = 'artists' %}
+
+{% block content %}
+    <div id="main" role="main" class="container">
+        {% for artistGroup in groupedArtists %}
+            <div class="row">
+                {% for artist in artistGroup %}
+                    <div class="span3 artist_listing">
+                        <a href="{{ path('artist', {'artist': artist.id}) }}" class="artwork_listing"><img src="{{ app.request.basepath }}/img/artists/{{ artist.image }}"></a>
+                        <div class="description_listing">
+                            <h4>{{ artist.name|e }}</h4>
+                            {{ artist.shortBiography|e }}
+                            <div id="artist_link">
+                                <a href="{{ path('artist', {'artist': artist.id}) }}">
+                                {{ 'See full profile'|trans }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        {% include "pagination.html.twig" %}
+    </div>
+{% endblock %}

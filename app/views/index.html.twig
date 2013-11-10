@@ -1,0 +1,57 @@
+{% extends 'layout.html.twig' %}
+{% set active = 'homepage' %}
+
+{% block content %}
+    <div id="main" role="main" class="container">
+    <div class="tabbable">
+    <ul class="nav nav-tabs" id="myTab">
+      <li class="active">
+        <a href="#loved" data-toggle="tab"><i class="icon-heart"></i>  {{ 'Loved'|trans }}</a>
+      </li>
+      <li>
+        <a href="#new" data-toggle="tab"><i class="icon-time"></i>  {{ 'New'|trans }}</a>
+      </li>
+    </ul>
+
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane fade in active" id="loved">
+        {% for likedArtistGroup in groupedLikedArtists %}
+            <div class="row">
+            {% for likedArtist in likedArtistGroup %}
+                <div class="span5 artist_bubble {% if loop.last %}offset1{% endif %}">
+                    <div class="media">
+                      <a class="pull-left" href="{{ path('artist', {'artist': likedArtist.id}) }}">
+                        <img class="media-object" src="{{ app.request.basepath }}/img/artists/{{ likedArtist.image }}">
+                      </a>
+                      <div class="media-body">
+                        <h4 class="media-heading">{{ likedArtist.name|e }}</h4>
+                        {{ likedArtist.shortBiography|e }}
+                      </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        {% endfor %}
+      </div>
+
+      <div class="tab-pane fade" id="new">
+        {% for newestArtistGroup in groupedNewestArtists %}
+            <div class="row">
+            {% for newestArtist in newestArtistGroup %}
+                <div class="span5 artist_bubble {% if loop.last %}offset1{% endif %}">
+                    <div class="media">
+                      <a class="pull-left" href="{{ path('artist', {'artist': newestArtist.id}) }}">
+                        <img class="media-object" src="{{ app.request.basepath }}/img/artists/{{ newestArtist.image }}">
+                      </a>
+                      <div class="media-body">
+                        <h4 class="media-heading">{{ newestArtist.name|e }}</h4>
+                        {{ newestArtist.shortBiography|e }}
+                      </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+{% endblock %}

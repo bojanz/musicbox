@@ -1,0 +1,17 @@
+{% if numPages > 1 %}
+    <div class="pagination">
+        <ul>
+            <li {% if currentPage == 1 %}class="disabled"{% endif %}>
+                <a href="{{ here }}?page={{ currentPage - 1 }}">{{ 'Prev'|trans }}</a>
+            </li>
+            {% for i in 1..numPages %}
+                <li {% if currentPage == i %}class="active"{% endif %}>
+                    <a href="{{ here }}?page={{ i }}">{{ i }}</a>
+                </li>
+            {% endfor %}
+            <li {% if currentPage == numPages %}class="disabled"{% endif %}>
+                <a href="{{ here }}?page={{ currentPage + 1 }}">{{ 'Next'|trans }}</a>
+            </li>
+        </ul>
+    </div>
+{% endif %}

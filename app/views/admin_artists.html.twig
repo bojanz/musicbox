@@ -1,0 +1,38 @@
+{% extends 'admin_layout.html.twig' %}
+{% set active = 'admin' %}
+{% set adminActive = 'artists' %}
+
+{% block content %}
+    <div id="main" role="main" class="container">
+        <a href="{{ path('admin_artist_add') }}" class="btn btn-inverse">{{ 'Add artist'|trans }}</a>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th> {{ 'Name'|trans }} </th>
+                    <th> {{ 'Likes'|trans }} </th>
+                    <th> {{ 'Created on'|trans }} </th>
+                    <th> {{ 'Operations'|trans }} </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for artist in artists %}
+                    <tr>
+                        <td> {{ artist.name|e }} </td>
+                        <td> {{ artist.likes }} </td>
+                        <td> {{ artist.createdAt|date('Y-m-d H:i') }} </td>
+                        <td>
+                            <a href="{{ path('admin_artist_edit', {'artist': artist.id}) }}">edit</a>
+                            <a href="{{ path('admin_artist_delete', {'artist': artist.id}) }}">delete</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">{{ 'No artists have been created yet.'|trans }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% include "pagination.html.twig" %}
+    </div>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'layout.html.twig' %}
+{% set active = 'artists' %}
+
+{% block content %}
+
+<div class="strippes">
+    <div class="container">
+      <div class="row">
+        <div class="span11">
+          <div class="row well">
+            <div class="span3">
+              <img id="artist-image" class="img-circle" src="{{ app.request.basepath }}/img/artists/{{ artist.image }}">
+            </div>
+            <div class="span6">
+              <div id="artist_name">{{ artist.name|e }}</div>
+              <div class="artist_bio">
+                {{ artist.biography|nl2br }}
+              </div>
+      </div>
+        {% if is_granted('ROLE_USER') %}
+            <div class="span1 heart">
+                <a id="pop_liked" href="#" rel='popover' data-placement="right" data-animation="true" data-toggle="popover" data-artist-id="{{ artist.id }}" data-trigger="manual" data-content="You think this artist is amazing!">
+                    <img src="{{ app.request.basepath }}/img/heart.png">
+                </a>
+          </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div class="titles strippes">listen</div>
+<div class="strippes">
+  <div class="container">
+    {{ soundcloudWidget|raw }}
+  </div>
+</div>
+<div class="titles">comments</div>
+<div id="comments">
+  <div class="container">
+    <div class="row comments">
+      <div class="span5 leave_comment">
+        <a href="#comment_form"><div class="btn btn-inverse"><i class="icon-comment"></i> {{ 'Leave a comment'|trans }}</div></a>
+      </div>
+      <div class="span8">
+        <div class="row">
+          {% for comment in comments %}
+            <div class="span2 comment_by"> <i class="icon-user"></i> {{ comment.user.username }}</div>
+            <div class="span6 comment_text">
+              {{ comment.comment|e }}
+            </div>
+          {% else %}
+            {{ 'No comments have been posted yet.'|trans }}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    </div>
+
+</div>
+<div id="comment_form" class="strippes">
+{% if newCommentForm %}
+    <form action="#comment_form" method="post" {{ form_enctype(newCommentForm) }} class="form-horizontal form_comment">
+        <div class="controls">
+            <legend>{{ 'Leave your comment here'|trans }}</legend>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+              {{ form_errors(newCommentForm.comment) }}
+              {{ form_widget(newCommentForm.comment) }}
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+              {{ form_row(newCommentForm.save) }}
+            </div>
+        </div>
+        {{ form_rest(newCommentForm) }}
+    </form>
+{% else %}
+  <a href="{{ path('login') }}">Login</a> to post comments.
+{% endif %}
+</div>
+{% endblock %}

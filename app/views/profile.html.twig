@@ -1,0 +1,38 @@
+{% extends 'layout.html.twig' %}
+{% set active = 'homepage' %}
+
+{% block content %}
+    <div class="strippes">
+        <div class="container">
+            <div class="row">
+                <div class="span3 offset1">
+                  <img src="{{ app.request.basepath }}/img/users/{{ user.username }}.jpg" class="img-circle"></img>
+                </div>
+                <div class="span5">
+                  <h1 id="user_name">{{ user.username|e }}</h1>
+                  <dl class="dl-horizontal">
+                      <dt>{{ 'email:'|e}}</dt>
+                      <dd>{{ user.mail|e }}</dd>
+                      <dt>{{ 'member for:'|e }}</dt>
+                      <dd>{{ memberSince }}</dd>
+                  </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="amazing"> {{ 'I think these artists are amazing:'|e }} </div>
+    <div class="container">
+        {% for likeGroup in groupedLikes %}
+        <div class="row">
+            {% for like in likeGroup %}
+              <div class="span2">
+                <a href="{{ path('artist', {'artist': like.artist.id}) }}" class="amazing_image">
+                  <h6 class="photo_hover">{{ like.artist.name }}</h6>
+                  <img src="{{ app.request.basepath }}/img/artists/{{ like.artist.image }}">
+                </a>
+              </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

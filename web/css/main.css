@@ -1,0 +1,208 @@
+#front_header {
+	font-size: 70px;
+	text-align: center;
+	font-family: 'Playfair Display', serif;
+	padding: 50px;
+	border-bottom: 1px solid #ddd;
+	background-color: #F8F8F8;
+}
+
+.artist_bubble {
+	background-color: #F8F8F8;
+}
+
+#artist-image {
+margin-top: 25px;
+}
+
+.tab-pane {
+	padding-top: 25px
+}
+
+.tab-pane .row {
+	margin-bottom: 20px;
+}
+
+.tabbable {
+	margin-top: 20px;
+}
+
+div#artist_name {
+	font-size: 53px;
+	line-height: 50px;
+	margin-top: 14px;
+	text-transform: lowercase;
+	font-family: 'Playfair Display', serif;
+}
+
+.strippes {
+	background: linear-gradient(90deg, white 25%, #eee 25%, #eee 100%, white 50%, white 25%, #eee 75%, #eee);
+	background-size:20px 20px;
+	padding: 20px 40px 40px 40px;
+}
+
+.artist_bio {
+	margin-top: 40px;
+}
+
+#heart {
+	position: absolute;
+	top: 279px;
+	width: 121px;
+	right: 266px;
+}
+/*
+#albums{
+	background: linear-gradient(90deg, white 25%, #EDC2C2 25%, #EDC2C2 100%, white 50%, white 25%, #EDC2C2 75%, #EDC2C2);
+	background-size:20px 20px;
+	padding: 40px;
+}
+*/
+.titles {
+	background-color: white;
+	font-size: 50px;
+	font-family: 'Playfair Display', serif;
+	padding: 30px;
+}
+
+#albums {
+	padding-bottom: 30px;
+}
+
+.titles.strippes {
+	background: linear-gradient(90deg, white 25%, #eee 25%, #eee 100%, white 50%, white 25%, #eee 75%, #eee);
+	background-size:20px 20px;
+}
+
+.row.comments {
+	margin-top: 15px;
+	margin-left: 10px;
+}
+
+.comment_text{
+	border-bottom: 1px solid black;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+.comment_by{
+	border-bottom: 1px solid #cd1c1c;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+.span5.leave_comment {
+	margin-bottom: 20px;
+}
+
+#comments {
+	padding-bottom: 30px;
+	margin-left: 90px;
+}
+
+.form-horizontal.form_comment {
+	margin-left: 60px;
+	margin-top: 25px;
+}
+
+legend {
+	font-family: 'Playfair Display', serif;
+	font-size: 24px;
+}
+
+.row.well {
+	margin-left: 17px;
+}
+
+.heart:hover{
+	opacity: 0.6;
+}
+
+.short_description {
+	background-color:rgb(228, 228, 228);
+	padding: 10px;
+	font-size: 12px;
+	margin-left: 0px;
+}
+
+.artwork_mouseover {
+	position: absolute;
+	left: 220px;
+	top: 253px;
+	background-color: white;
+	font-size: 22px;
+	opacity: 0.8;
+	padding: 10px;
+	width: 105px;
+	visibility: hidden;
+}
+
+.artwork:hover .artwork_mouseover {
+	visibility: visible;
+}
+
+.artist_listing {
+	margin-top: 10px;
+}
+
+.description_listing {
+	font-size: 11px;
+	background-color: #eeeeee;
+	padding: 10px;
+	margin-left: 0px;
+	margin-top: 10px;
+	display: none;
+}
+
+#main {
+	margin-bottom: 50px;
+}
+
+.container {
+	padding-top: 20px;
+}
+
+#myTab {
+	margin-bottom: 0 !important;
+}
+
+#tab_listing {
+	margin-top: 30px;
+}
+
+#artist_link {
+	display: block !important;
+}
+
+#user_name {
+	font-family: 'Playfair Display', serif;
+	padding-bottom: 10px;
+	border-bottom: 1px solid black;
+}
+
+#amazing {
+background-color: white;
+font-size: 27px;
+font-family: 'Playfair Display', serif;
+padding: 15px;
+text-align: center;
+border-top: 1px solid rgb(230, 230, 230);
+border-bottom: 1px solid black;
+}
+
+.photo_hover {
+position: relative;
+top: 42px;
+left: 0px;
+background-color: rgb(231, 231, 231);
+padding: 6px;
+visibility: hidden;
+color: black;
+text-decoration: none;
+font-size: 9px !important;
+}
+
+.amazing_image:hover .photo_hover {
+visibility: visible;
+text-decoration: none;
+}
