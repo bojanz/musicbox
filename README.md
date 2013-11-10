@@ -28,23 +28,23 @@ Open app/config/prod.php and under $app['db.options'] set your database credenti
 
 Application structure
 ---------------------
-- app
-  -- cache - Used by Twig to save compiled templates
-  -- config - Contains the dev.php and prod.php files with configuration data (db credentials, etc).
-  -- views - Contains the Twig templates called by the controllers, including the main layout file.
-- src - Contains the main application code
-  -- app.php - Called by index.php, initializes the app by registering libraries into the dependency injection container.
-  -- routes.php - Called by index.php, routes map urls to controller classes.
-                  Each route has a name (such as "admin_artist_edit"), used to generate urls from the views and controllers.
-  -- MusicBox - this folder contains the root of the namespace. All classes are nested below.
-    --- Controller - Contains the controller classes.
-    --- Entity - Contains the entities, POPO (plan old PHP objects) that represent the data that is manipulated by the repositories.
-                 An entity class has properties that mostly correspond to database columns, as well as related getters and setters.
-    --- Form - Contains the Form classes used by the Symfony Form library to render each form.
-    --- Repository - Contains classes that manipulate entity data by doing queries against the database. This includes all CRUD operations.
 
-- vendor - Contains the dependencies managed by composer.
-- web - Contains static files (CSS, JS, etc) as well as the main entrypoint (index.php)
+    - app
+      -- cache - Used by Twig to save compiled templates
+      -- config - Contains the dev.php and prod.php files with configuration data (db credentials, etc).
+      -- views - Contains the Twig templates called by the controllers, including the main layout file.
+    - src - Contains the main application code
+      -- app.php - Called by index.php, initializes the app by registering libraries into the dependency injection container.
+      -- routes.php - Called by index.php, routes map urls to controller classes.
+                       Each route has a name (such as "admin_artist_edit"), used to generate urls from the views and controllers.
+      -- MusicBox - this folder contains the root of the namespace. All classes are nested below.
+        --- Controller - Contains the controller classes.
+        --- Entity - Contains the entities, POPO (plan old PHP objects) that represent the data that is manipulated by the repositories.
+                 An entity class has properties that mostly correspond to database columns, as well as related getters and setters.
+        --- Form - Contains the Form classes used by the Symfony Form library to render each form.
+        --- Repository - Contains classes that manipulate entity data by doing queries against the database. This includes all CRUD operations.
+    - vendor - Contains the dependencies managed by composer.
+    - web - Contains static files (CSS, JS, etc) as well as the main entrypoint (index.php)
 
 Application flow
 ----------------
