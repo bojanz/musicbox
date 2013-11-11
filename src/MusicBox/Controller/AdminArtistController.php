@@ -57,7 +57,7 @@ class AdminArtistController
     {
         $artist = $request->attributes->get('artist');
         if (!$artist) {
-            throw new ResourceNotFoundException('The requested artist was not found.');
+            $app->abort(404, 'The requested artist was not found.');
         }
         $form = $app['form.factory']->create(new ArtistType(), $artist);
 
@@ -81,7 +81,7 @@ class AdminArtistController
     {
         $artist = $request->attributes->get('artist');
         if (!$artist) {
-            throw new ResourceNotFoundException('The requested artist was not found.');
+            $app->abort(404, 'The requested artist was not found.');
         }
 
         $app['repository.artist']->delete($artist);

@@ -8,7 +8,6 @@ use MusicBox\Form\Type\CommentType;
 use Silex\Application;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 
 class ArtistController
 {
@@ -43,7 +42,7 @@ class ArtistController
     {
         $artist = $request->attributes->get('artist');
         if (!$artist) {
-            throw new ResourceNotFoundException('The requested artist was not found.');
+            $app->abort(404, 'The requested artist was not found.');
         }
 
         // Replace with the current user.
@@ -89,7 +88,7 @@ class ArtistController
         $token = $app['security']->getToken();
         $user = $token->getUser();
         if (!$artist) {
-            throw new ResourceNotFoundException('The requested artist was not found.');
+            $app->abort(404, 'The requested artist was not found.');
         }
         if ($user == 'anon.') {
             // Only logged-in users can comment.

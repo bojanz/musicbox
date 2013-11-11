@@ -56,6 +56,9 @@ class AdminUserController
     public function editAction(Request $request, Application $app)
     {
         $user = $request->attributes->get('user');
+        if (!$user) {
+            $app->abort(404, 'The requested user was not found.');
+        }
         $form = $app['form.factory']->create(new UserType(), $user);
 
         if ($request->isMethod('POST')) {
@@ -84,6 +87,10 @@ class AdminUserController
     public function deleteAction(Request $request, Application $app)
     {
         $user = $request->attributes->get('user');
+        if (!$user) {
+            $app->abort(404, 'The requested user was not found.');
+        }
+
         $app['repository.user']->delete($user->getId());
         return $app->redirect($app['url_generator']->generate('admin_users'));
     }

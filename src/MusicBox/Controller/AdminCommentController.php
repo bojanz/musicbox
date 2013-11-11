@@ -32,6 +32,9 @@ class AdminCommentController
     public function editAction(Request $request, Application $app)
     {
         $comment = $request->attributes->get('comment');
+        if (!$comment) {
+            $app->abort(404, 'The requested comment was not found.');
+        }
         $form = $app['form.factory']->create(new CommentType(), $comment);
 
         if ($request->isMethod('POST')) {
@@ -53,6 +56,10 @@ class AdminCommentController
     public function deleteAction(Request $request, Application $app)
     {
         $comment = $request->attributes->get('comment');
+        if (!$comment) {
+            $app->abort(404, 'The requested comment was not found.');
+        }
+
         $app['repository.comment']->delete($comment->getId());
         return $app->redirect($app['url_generator']->generate('admin_comments'));
     }
@@ -60,6 +67,10 @@ class AdminCommentController
     public function approveAction(Request $request, Application $app)
     {
         $comment = $request->attributes->get('comment');
+        if (!$comment) {
+            $app->abort(404, 'The requested comment was not found.');
+        }
+
         $app['repository.comment']->delete($comment->getId());
         return $app->redirect($app['url_generator']->generate('admin_comments'));
     }
@@ -67,6 +78,10 @@ class AdminCommentController
     public function unapproveAction(Request $request, Application $app)
     {
         $comment = $request->attributes->get('comment');
+        if (!$comment) {
+            $app->abort(404, 'The requested comment was not found.');
+        }
+
         $app['repository.comment']->delete($comment->getId());
         return $app->redirect($app['url_generator']->generate('admin_comments'));
     }
