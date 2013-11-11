@@ -55,6 +55,10 @@ $app['repository.comment'] = $app->share(function ($app) {
 $app['repository.like'] = $app->share(function ($app) {
     return new MusicBox\Repository\LikeRepository($app['db'], $app['repository.artist'], $app['repository.user']);
 });
+// Register custom services.
+$app['soundcloud'] = $app->share(function ($app) {
+    return new MusicBox\Service\SoundCloud();
+});
 
 // Protect admin urls.
 $app->before(function (Request $request) use ($app) {

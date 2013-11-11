@@ -76,7 +76,7 @@ class ArtistController
 
         $data = array(
             'artist' => $artist,
-            'soundcloudWidget' => $this->getSoundCloudWidget($artist->getSoundCloudUrl()),
+            'soundcloudWidget' => $app['soundcloud']->getWidget($artist->getSoundCloudUrl()),
             'comments' => $comments,
             'newCommentForm' => $commentFormView,
         );
@@ -114,7 +114,8 @@ class ArtistController
         return '';
     }
 
-    protected function sendNotification($comment) {
+    protected function sendNotification($comment)
+    {
         $artist = $comment->getArtist();
         $user = $comment->getUser();
         $messageBody = 'The following comment was posted by ' . $user->getUsername() . ":\n";
@@ -125,17 +126,5 @@ class ArtistController
             ->setTo(array($app['admin_email']))
             ->setBody('The following comment was posted by :');
         $app['mailer']->send($messageBody);
-    }
-
-    protected function getSoundCloudWidget($url) {
-        $url = 'http://soundcloud.com/oembed?format=json&url=' . urlencode($url);
-        $curl = curl_init($url);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl, CURLOPT_TIMEOUT, 30);
-        $return = curl_exec($curl);
-        curl_close($curl);
-
-        $data = json_decode($return, TRUE);
-        return $data['html'];
     }
 }
