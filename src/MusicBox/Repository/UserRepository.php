@@ -75,6 +75,13 @@ class UserRepository implements RepositoryInterface, UserProviderInterface
         }
     }
 
+    /**
+     * Handles the upload of a user image.
+     *
+     * @param \MusicBox\Entity\User $user
+     *
+     * @param boolean TRUE if a new user image was uploaded, FALSE otherwise.
+     */
     protected function handleFileUpload($user) {
         // If a temporary file is present, move it to the correct directory
         // and set the filename on the user.
@@ -103,7 +110,7 @@ class UserRepository implements RepositoryInterface, UserProviderInterface
     /**
      * Returns the total number of users.
      *
-     * @return int The total number of users.
+     * @return integer The total number of users.
      */
     public function getCount() {
         return $this->db->fetchColumn('SELECT COUNT(user_id) FROM users');

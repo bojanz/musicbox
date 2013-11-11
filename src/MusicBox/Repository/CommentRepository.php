@@ -72,7 +72,7 @@ class CommentRepository implements RepositoryInterface
     /**
      * Returns the total number of comments.
      *
-     * @return int The total number of comments.
+     * @return integer The total number of comments.
      */
     public function getCount() {
         return $this->db->fetchColumn('SELECT COUNT(comment_id) FROM comments');

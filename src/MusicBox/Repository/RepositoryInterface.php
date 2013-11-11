@@ -46,9 +46,9 @@ interface RepositoryInterface
     /**
      * Returns a collection of entities.
      *
-     * @param $limit
+     * @param integer $limit
      *   The number of entities to return.
-     * @param $offset
+     * @param integer $offset
      *   The number of entities to skip.
      * @param array $orderBy
      *   Optionally, the order by info, in the $column => $direction format.

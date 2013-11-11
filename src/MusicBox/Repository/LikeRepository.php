@@ -70,7 +70,7 @@ class LikeRepository implements RepositoryInterface
     /**
      * Returns the total number of likes.
      *
-     * @return int The total number of likes.
+     * @return integer The total number of likes.
      */
     public function getCount() {
         return $this->db->fetchColumn('SELECT COUNT(like_id) FROM likes');
@@ -81,7 +81,7 @@ class LikeRepository implements RepositoryInterface
      *
      * @param integer $id
      *
-     * @return \MusicBox\Entity\Like|false An entity object if found, false otherwise.
+     * @return \MusicBox\Entity\Like|false A like if found, false otherwise.
      */
     public function find($id)
     {
@@ -92,13 +92,12 @@ class LikeRepository implements RepositoryInterface
     /**
      * Returns a collection of likes for the given user id.
      *
-     * @param $artistId
+     * @param integer $artistId
      *   The artist id.
-     * @param $userId
+     * @param integer $userId
      *   The user id.
      *
-     * @return
-     *   A like if found, or FALSE.
+     * @return \MusicBox\Entity\Like|false A like if found, false otherwise.
      */
     public function findByArtistAndUser($artistId, $userId)
     {

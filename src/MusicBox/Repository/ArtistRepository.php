@@ -63,6 +63,13 @@ class ArtistRepository implements RepositoryInterface
         }
     }
 
+    /**
+     * Handles the upload of an artist image.
+     *
+     * @param \MusicBox\Entity\Artist $artist
+     *
+     * @param boolean TRUE if a new artist image was uploaded, FALSE otherwise.
+     */
     protected function handleFileUpload($artist) {
         // If a temporary file is present, move it to the correct directory
         // and set the filename on the artist.
@@ -96,7 +103,7 @@ class ArtistRepository implements RepositoryInterface
     /**
      * Returns the total number of artists.
      *
-     * @return int The total number of artists.
+     * @return integer The total number of artists.
      */
     public function getCount() {
         return $this->db->fetchColumn('SELECT COUNT(artist_id) FROM artists');
