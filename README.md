@@ -71,3 +71,5 @@ Emails
 The application notifies the admin by email of every new posted comment.
 The sending is done in the ArtistController.
 The recepient email address is configured in the dev.php config file.
+
+Blog post: http://bojanz.wordpress.com/2013/11/11/learning-php-development-with-silex
