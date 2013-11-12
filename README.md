@@ -12,11 +12,12 @@ Getting started
 ---------------
 1. Move the files
 Extract the contents of the "web" folder into your public html directory.
-Copy all other folders one level above. Your structure should look like
-- app
-- src
-- vendor
-- public_html (Your public html directory, and inside the contents of the "web" folder)
+Copy all other folders one level above. Your structure should look like this:
+
+    - app
+    - src
+    - vendor
+    - public_html (Your public html directory, and inside the contents of the "web" folder)
 
 Make sure that the img/artists and img/users directories in your public_html directory
 are writable.
