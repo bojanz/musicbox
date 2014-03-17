@@ -2,8 +2,7 @@
 
 // Register route converters.
 // Each converter needs to check if the $id it received is actually a value,
-// as a workaround for https://github.com/fabpot/Silex/issues/768.
-// @todo Remove the workaround when Silex 1.1.1 gets released.
+// as a workaround for https://github.com/silexphp/Silex/pull/768.
 $app['controllers']->convert('artist', function ($id) use ($app) {
     if ($id) {
         return $app['repository.artist']->find($id);
