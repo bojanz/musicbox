@@ -64,7 +64,7 @@ class ArtistController
                     // Save the comment.
                     $app['repository.comment']->save($comment);
                     // Send an email notification.
-                    $this->sendNotification($comment);
+                    $this->sendNotification($comment, $app);
                     $app['session']->getFlashBag()->add('success', 'Your comment has been added.');
                 }
             }
@@ -113,7 +113,7 @@ class ArtistController
         return '';
     }
 
-    protected function sendNotification($comment)
+    protected function sendNotification($comment, Application $app)
     {
         $artist = $comment->getArtist();
         $user = $comment->getUser();
