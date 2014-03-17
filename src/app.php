@@ -11,6 +11,7 @@ $app->register(new Silex\Provider\SessionServiceProvider());
 $app->register(new Silex\Provider\ValidatorServiceProvider());
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 $app->register(new Silex\Provider\TranslationServiceProvider());
+$app->register(new Silex\Provider\SwiftmailerServiceProvider());
 
 $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     'security.firewalls' => array(
