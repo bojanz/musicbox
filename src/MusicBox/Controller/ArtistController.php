@@ -124,6 +124,6 @@ class ArtistController
             ->setFrom(array($app['site_email']))
             ->setTo(array($app['admin_email']))
             ->setBody('The following comment was posted by :');
-        $app['mailer']->send($messageBody);
+        $app['mailer']->send($message);
     }
 }
