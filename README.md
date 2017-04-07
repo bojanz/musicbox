@@ -25,6 +25,13 @@ are writable.
 2. Create a new empty database, and import the sql dump provided in app/db_dump.sql
 Open app/config/prod.php and under $app['db.options'] set your database credentials
 
+   You may try using SQLite, with the provided sqlitedb_dump.sql
+   (sqlite3 app/app.db <app/sqlitedb_dump.sql), and would modify db.options in dev.php, like :
+   $app['db.options'] = array(
+      'driver'   => 'pdo_sqlite',
+      'path'     => __DIR__.'/../app.db'
+   );
+   
 3. MusicBox should now be functional. An admin user with the admin/admin username/password has been created for you.
 
 Application structure
