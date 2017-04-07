@@ -33,6 +33,7 @@ class ArtistRepository implements RepositoryInterface
             'biography' => $artist->getBiography(),
             'soundcloud_url' => $artist->getSoundCloudUrl(),
             'image' => $artist->getImage(),
+            'likes' => $artist->getLikes(),
         );
 
         if ($artist->getId()) {
