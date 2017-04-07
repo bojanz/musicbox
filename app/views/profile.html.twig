@@ -24,14 +24,18 @@
     <div class="container">
         {% for likeGroup in groupedLikes %}
         <div class="row">
-            {% for like in likeGroup %}
-              <div class="span2">
+          {% for like in likeGroup %}
+            {% if like.artist is not empty %}
+            <div class="span2">
+              
                 <a href="{{ path('artist', {'artist': like.artist.id}) }}" class="amazing_image">
                   <h6 class="photo_hover">{{ like.artist.name }}</h6>
                   <img src="{{ app.request.basepath }}/img/artists/{{ like.artist.image }}">
                 </a>
-              </div>
-            {% endfor %}
+              
+            </div>
+            {% endif %}
+          {% endfor %}
         </div>
         {% endfor %}
     </div>

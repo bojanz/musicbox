@@ -20,13 +20,8 @@ class UserController
         $likes = $app['repository.like']->findAllByUser($user->getId(), $limit);
         // Divide artists into groups of 6.
         $groupSize = 6;
-        $groupedLikes = array();
-        $progress = 0;
-        while ($progress < $limit) {
-            $groupedLikes[] = array_slice($likes, $progress, $groupSize);
-            $progress += $groupSize;
-        }
-
+        $groupedLikes = array_chunk($likes, $groupSize);
+            
         $data = array(
             'user' => $user,
             'memberSince' => $memberSince,
